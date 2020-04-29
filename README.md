@@ -39,6 +39,14 @@ npm install
 
 You'll also need to have [MongoDB][mongo] installed and running. For quick access, you can install via a package manager such as on Mac OS `brew install mongodb` or on Linux (Debian) it would be `apt-get install mongodb`. To run MongoDB, you can run `mongod` in the command line. See the [MongoDB install guide][mongo-install] for more detailed information.
 
+## MongoDB with Ubuntu
+After running `apt-get install mongodb`:
+* Edit `/etc/systemd/system/mongodb.service`
+* Change `--config /etc/mongod.conf` to `--config /etc/mongodb.conf`
+* Then run `$ systemctl daemon-reload`
+* Then start mongodb through `systemctl`: `$ sudo systemctl start mongodb`
+* Finally check that all is running well with: `$ sudo systemctl status mongodb`
+
 The last step before being able to run the application is to define a configuration for it. This can be done in two ways:
 
 ### Option 1: Using Environment Variables
